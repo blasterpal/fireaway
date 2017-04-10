@@ -4,6 +4,29 @@ Welcome to your new gem! In this directory, you'll find the files you need to be
 
 TODO: Delete this and the text above, and describe your gem
 
+
+## Problem this Gem attempting to solve
+
+HTTP is the focus of this idea. For a small team with enough on their plate already, avoiding another component or dependency into stack and ops is costly. 
+In this example, the cloud and PaaS services are not an option, the app lives on our hardware for business reasons. I can't use RabbitMQ as a service. 
+
+
+
+# Implementation idea
+
+With service architecture, some type of message passing is required between applications (sharing a DB is an anti-pattern). A goal is implementation should be opaque.
+However the synchronous versus asynchronous nature of HTTPS and message queues respectively, makes the implementation being generic a little harder.
+
+One of the first problems when you consider using HTTP as a means of distributed messaging, what if the service is down? 
+Then your calls either throw exceptions or you have to write code to account for service being down, which actually you should anyway.
+
+The wonderment is 'why can't you use HTTP but also have 'some' durability'? Even better, you can retry HTTP calls and even replay messages later. Smells similar to a queue.
+For the purposes of simplicity, I need to ignore other features of queues like fanout,etc. 
+
+Record the message into a journal that can be replayed. The "messages" are domain specific to this app anyway.
+So why not let it keep the failures and present in admin for this app to replay?
+
+
 ## Installation
 
 Add this line to your application's Gemfile:

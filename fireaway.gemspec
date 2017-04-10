@@ -9,8 +9,8 @@ Gem::Specification.new do |spec|
   spec.authors       = ["Hank Beaver"]
   spec.email         = ["hbeaver@gmail.com"]
 
-  spec.summary       = %q{TODO: Write a short summary, because Rubygems requires one.}
-  spec.description   = %q{TODO: Write a longer description or delete this line.}
+  spec.summary       = %q{Idea for multi-transport capable interface akin to ActiveJob with message queue features.}
+  spec.description   = %q{An interface that supports features kike a message queue over HTTP or any other transport, even a real message queue.}
   spec.homepage      = "TODO: Put your gem's website or public repo URL here."
   spec.license       = "MIT"
 

@@ -1,0 +1,1 @@
+class InterfaceError < StandardError; end
